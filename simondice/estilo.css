@@ -41,6 +41,13 @@ body{
 
 #general{
     margin-top: 50px;
+    position: absolute;
+}
+
+#puntuacion{
+    position: relative;
+    top: 10%;
+    left: 80%;
 }
 
 #reglas{
@@ -67,6 +74,10 @@ p{
 }
 #contenedorReglas{
     padding: 35px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: (-50%,-50%);
 }
 #titulo{
     border: none;
@@ -78,6 +89,3 @@ a{
     color: black;
     cursor: default;
 }
-/*.Cerrar{
-    
-}*/
