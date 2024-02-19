@@ -13,7 +13,7 @@ function comenzar(){
 }
 
 function colorSecuencia(){
-    const colorAleatorio = colores[Math.random()*4];
+    const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
     Julio.push(colorAleatorio);
 }
 
@@ -27,25 +27,28 @@ function mostrarSecuencia(){
         clearInterval(intervalo);
         empezarEntrada();
        }
-    }, 1000);
+    }, 500);
 }
 
 function resaltarColor(color){
     const colorBoton= document.getElementById(color)
     colorBoton.style.opacity="0.4";
 
+    
+
     setTimeout(()=>{
         colorBoton.style.opacity="1";
-    },500);
+    },250);
 }
 
 function empezarEntrada(){
     const botonesColores=document.querySelectorAll(".color");
     botonesColores.forEach(botonesColor => botonesColor.addEventListener("click", manejarEntrada));
+
 }
 
 function manejarEntrada(event){
-    const colorSeleccionado = event.taget.id;
+    const colorSeleccionado = event.target.id;
     resaltarColor(colorSeleccionado);
     jugador.push(colorSeleccionado);
 
@@ -66,7 +69,7 @@ function manejarEntrada(event){
 
 function verificarEntrada(){
     for(let i = 0; i<jugador.length; i++){
-        if(jugador[i] !== julio[i]){
+        if(jugador[i] !== Julio[i]){
             return false;
         }
     }
@@ -74,7 +77,7 @@ function verificarEntrada(){
 }
 
 function terminarJuego(){
-    alert("JUEGO TERMINADO! Tu puntuacion final es: ${puntuacion}");
+    alert(`JUEGO TERMINADO! Tu puntuacion final es: ${puntuacion}`);
     reiniciarJuego();
 }
 
